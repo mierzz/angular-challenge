@@ -1,0 +1,66 @@
+@use '/src/assets/scss/colors' as colors;
+
+.post {
+  .mat-card-content,
+  .mat-card-actions {
+    padding: 10px;
+  }
+  &--user {
+    justify-content: flex-start;
+  }
+}
+.post-comment {
+  &--container {
+    display: flex;
+    flex-direction: column;
+    .mat-card {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      padding: 40px;
+      &-content {
+        height: 100%;
+      }
+    }
+  }
+  &--form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    .mat-form-field {
+      width: 100%;
+    }
+    .form-controls {
+      text-align: right;
+    }
+  }
+}
+
+.alphin-post-button {
+  background-color: colors.$alphin-flush;
+  color: colors.$alphin-white;
+  border-radius: 20px / 50%;
+  font-weight: 700;
+  padding: 1px 16px;
+  .mat-icon {
+    margin-right: 5px;
+  }
+}
+
+.mat-card {
+  color: colors.$alphin-black;
+  border-radius: 12px;
+  .mat-card-header {
+    padding-bottom: 15px;
+    font-weight: 600;
+  }
+  .post-details-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .mat-card-actions button {
+    width: 100%;
+  }
+}

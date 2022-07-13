@@ -1,0 +1,15 @@
+<div class="post-user">
+  <ng-container *ngIf="post">
+    <div class="user-avatar">
+      <img mat-card-avatar [src]="post.user.profilePicUrl" />
+    </div>
+
+    <div class="user-info-container">
+      <div class="user-name">{{ post.user.username }}</div>
+      <div class="user-followers">
+        {{ format.formatRoundNumber(post.user.counts?.followedBy || 0) }}
+        followers
+      </div>
+    </div>
+  </ng-container>
+</div>

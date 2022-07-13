@@ -1,0 +1,17 @@
+@use '/src/assets/scss/colors' as colors;
+
+.post-info {
+  font-size: 14px;
+  &--likes,
+  &--comments {
+    color: colors.$alphin-blue;
+    white-space: nowrap;
+    text-align: right;
+  }
+  &--date {
+    margin-top: 2px;
+    text-align: right;
+    color: colors.$alphin-text-light;
+    white-space: nowrap;
+  }
+}

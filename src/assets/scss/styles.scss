@@ -1,0 +1,62 @@
+@use 'colors' as colors;
+@use 'palettes' as palettes;
+@use '@angular/material' as mat;
+
+@include mat.core();
+$alphin-primary: mat.define-palette(palettes.$alphin-primary-palette, 500);
+$alphin-warn: mat.define-palette(palettes.$alphin-warn-palette, 500);
+
+$alphin-typography: mat.define-typography-config(
+  $font-family: 'Poppins',
+);
+
+$alphin-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $alphin-primary,
+      accent: $alphin-primary,
+      warn: $alphin-warn,
+    ),
+    typography: $alphin-typography,
+  )
+);
+
+@include mat.core-theme($alphin-theme);
+@include mat.all-component-themes($alphin-theme);
+
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+
+@import '~bootstrap/scss/root';
+@import '~bootstrap/scss/reboot';
+@import '~bootstrap/scss/containers';
+@import '~bootstrap/scss/grid';
+@import '~bootstrap/scss/bootstrap-utilities';
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: colors.$alphin-grey;
+  color: colors.$alphin-black;
+}
+
+.app-button,
+.mat-button.app-button {
+  color: colors.$alphin-blue;
+  font-weight: 600;
+  border: 2px solid colors.$alphin-blue;
+  border-radius: 20px / 50%;
+  padding: 2px 35px;
+  &.button-filled {
+    &:not([disabled]) {
+      background-color: colors.$alphin-blue;
+      color: colors.$alphin-white;
+    }
+
+    &[disabled] {
+      background-color: colors.$alphin-blue-disabled;
+      border-color: colors.$alphin-blue-disabled;
+      cursor: not-allowed;
+    }
+  }
+}

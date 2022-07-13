@@ -1,0 +1,19 @@
+<div class="post-info">
+  <div *ngIf="post">
+    <div class="row">
+      <div class="post-info--likes col-sm-6">
+        <mat-icon svgIcon="likes"></mat-icon>
+        {{ format.formatRoundNumber(post.counts.likes) }}
+      </div>
+      <div class="post-info--comments col-sm-6">
+        <mat-icon svgIcon="comments"></mat-icon>
+        {{ format.formatRoundNumber(post.counts.comments) }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="post-info--date col-sm-12">
+        {{ format.formatDate(post.postedAt) }}
+      </div>
+    </div>
+  </div>
+</div>

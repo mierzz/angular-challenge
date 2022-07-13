@@ -1,0 +1,25 @@
+@use '/src/assets/scss/colors' as colors;
+
+.post-user {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  .user-name-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .user-name {
+    color: colors.$alphin-blue;
+    font-weight: 700;
+  }
+  .user-avatar {
+    padding: 10px;
+  }
+}
+
+.user-followers {
+  color: colors.$alphin-text-light;
+  white-space: nowrap;
+}

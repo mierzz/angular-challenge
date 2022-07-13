@@ -1,0 +1,22 @@
+<div class="post-container">
+  <mat-card *ngIf="post" class="post mb-4 mat-elevation-z10">
+    <div class="post--container row">
+      <div class="post--image col-md-2">
+        <img src="/assets/images/cup-of-cofee.png" alt="Post Image" />
+      </div>
+
+      <app-post-caption class="post--caption col-md-3" [post]="post"></app-post-caption>
+
+      <div class="post--info-container col-md-5 row">
+        <app-post-user-info class="post--user col-sm-6" [post]="post"></app-post-user-info>
+        <app-post-info class="post--info col-sm-6" [post]="post"></app-post-info>
+      </div>
+
+      <div class="post--controls col-md-2">
+        <a [routerLink]="['/posts', post._id]">
+          <button mat-button class="app-button">Edit</button>
+        </a>
+      </div>
+    </div>
+  </mat-card>
+</div>

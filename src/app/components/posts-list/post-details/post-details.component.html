@@ -1,0 +1,78 @@
+<div class="post-details-container">
+  <div *ngIf="post" class="row">
+    <div class="col-md-4">
+      <mat-card class="post mat-elevation-z10">
+        <div class="post-details-card-header mat-card-header">
+          <div><mat-icon svgIcon="calendar"></mat-icon> Feed Post</div>
+
+          <a [routerLink]="['/posts']">
+            <button mat-button class="alphin-post-button">
+              <mat-icon svgIcon="alphin"></mat-icon> alphine post
+            </button>
+          </a>
+        </div>
+
+        <img
+          mat-card-image
+          src="/assets/images/cup-of-cofee.png"
+          alt="Post Image"
+        />
+
+        <mat-card-content>
+          <div class="post--info-container row">
+            <app-post-user-info class="post--user col-sm-7" [post]="post">
+            </app-post-user-info>
+            <app-post-info class="post--info col-sm-5" [post]="post">
+            </app-post-info>
+          </div>
+
+          <app-post-caption class="post--caption" [post]="post" [short]="false">
+          </app-post-caption>
+        </mat-card-content>
+
+        <mat-card-actions>
+          <button mat-button class="app-button">Preview</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+    <div class="post-comment--container col-md-8">
+      <h2>Details View</h2>
+      <mat-card class="post-comment mt-4 mat-elevation-z10">
+        <div class="mat-card-header">Add a comment</div>
+        <mat-card-content>
+          <form
+            class="post-comment--form"
+            #form="ngForm"
+            (submit)="onSubmit(); $event.preventDefault()"
+          >
+            <div class="form-content">
+              <mat-form-field class="example-full-width" appearance="outline">
+                <textarea
+                  name="comment"
+                  cdkTextareaAutosize
+                  matInput
+                  (ngModelChange)="onCommentChanged($event)"
+                  [ngModel]="comment"
+                  required
+                  placeholder="Leave comment here..."
+                  rows="6"
+                >
+                </textarea>
+              </mat-form-field>
+            </div>
+            <div class="form-controls">
+              <button
+                mat-button
+                class="app-button button-filled"
+                [disabled]="!comment.length"
+              >
+                Save
+              </button>
+            </div>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
