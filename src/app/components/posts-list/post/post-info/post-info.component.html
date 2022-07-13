@@ -3,16 +3,16 @@
     <div class="row">
       <div class="post-info--likes col-sm-6">
         <mat-icon svgIcon="likes"></mat-icon>
-        {{ format.formatRoundNumber(post.counts.likes) }}
+        {{ post.counts.likes| thousandSuffix }}
       </div>
       <div class="post-info--comments col-sm-6">
         <mat-icon svgIcon="comments"></mat-icon>
-        {{ format.formatRoundNumber(post.counts.comments) }}
+        {{ post.counts.comments | thousandSuffix }}
       </div>
     </div>
     <div class="row">
       <div class="post-info--date col-sm-12">
-        {{ format.formatDate(post.postedAt) }}
+        {{ post.postedAt | formatDate }}
       </div>
     </div>
   </div>

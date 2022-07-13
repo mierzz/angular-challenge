@@ -7,7 +7,7 @@
     <div class="user-info-container">
       <div class="user-name">{{ post.user.username }}</div>
       <div class="user-followers">
-        {{ format.formatRoundNumber(post.user.counts?.followedBy || 0) }}
+        {{ post.user.counts?.followedBy ? (post.user.counts.followedBy | thousandSuffix) : 0 }}
         followers
       </div>
     </div>
