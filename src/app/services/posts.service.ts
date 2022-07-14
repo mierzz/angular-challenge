@@ -17,8 +17,6 @@ export class PostsService {
   }
 
   async getPostsList(): Promise<Post[]> {
-    console.log(this.apiUrl);
-    
     const method = `postings`;
 
     const response = this.http.get<Post[]>(`${this.apiUrl}/${method}`);

@@ -12,6 +12,9 @@ import { PostUserInfoComponent } from './post/post-user-info/post-user-info.comp
 import { PostCaptionComponent } from './post/post-caption/post-caption.component';
 import { PostDetailsComponent } from './post-details/post-details.component';
 import { FormsModule } from '@angular/forms';
+import { ThousandSuffixesPipe } from 'src/app/pipes/number-suffix.pipe';
+import { FormatDatePipe } from 'src/app/pipes/format-date.pipe';
+
 
 @NgModule({
   declarations: [
@@ -21,6 +24,8 @@ import { FormsModule } from '@angular/forms';
     PostUserInfoComponent,
     PostCaptionComponent,
     PostDetailsComponent,
+    ThousandSuffixesPipe,
+    FormatDatePipe
   ],
   imports: [
     CommonModule,

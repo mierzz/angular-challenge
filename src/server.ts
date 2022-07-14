@@ -10,6 +10,12 @@ const app = express();
 const port = 8080;
 const apiUrl = process.env.ALPHIN_API_URL;
 
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, fr-access-token");
+  next();
+})
+
 interface GetPostingResponse {
   status: string;
   result: Post[];
@@ -30,11 +36,10 @@ const getPostings = async (request: Request, response: Response) => {
     `${apiUrl}/${method}`,
     {
       headers: {
-        'fr-access-token': process.env.ALPHIN_API_KEY || '',
+        'fr-access-token': String(request.get('fr-access-token')),
       },
     }
   );
-
   return response.json(apiResponse.data.result);
 };
 
@@ -48,13 +53,10 @@ const getPostingsDetails = async (
     `${apiUrl}/${method}`,
     {
       headers: {
-        'fr-access-token': process.env.ALPHIN_API_KEY || '',
+        'fr-access-token': String(request.get('fr-access-token')),
       },
     }
   );
-  console.log(request.params, `${apiUrl}/${method}`, apiResponse.data);
-  
-
   return response.json(apiResponse.data.result);
 };
 
